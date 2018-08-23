@@ -36,12 +36,12 @@ class Data extends AbstractHelper
     /**
      * Data constructor.
      *
-     * @param \Magento\Framework\App\Helper\Context $context
+     * @param \Magento\Framework\App\Helper\Context         $context
      * @param \Magento\Framework\Module\ModuleListInterface $moduleList
      */
     public function __construct(
-        Context $context,
-        ModuleListInterface $moduleList
+      Context $context,
+      ModuleListInterface $moduleList
     ) {
         $this->_moduleList = $moduleList;
 
