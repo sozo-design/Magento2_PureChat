@@ -7,12 +7,18 @@
     {
       "name": "Clive Walkden",
       "email": "clive@sozodesign.co.uk",
-      "homepage": "https://sozodesign.co.uk"
+      "homepage": "https://sozodesign.co.uk",
+      "role": "Developer"
     }
   ],
   "license": "OSL-3.0",
   "require": {
     "magento/framework": ">=100.0.0"
+  },
+  "support": {
+    "issues": "https://github.com/sozo-design/Magento2_PureChat/issues",
+    "source": "https://github.com/clivewalkden/Magento2_Purechat",
+    "docs": "https://github.com/sozo-design/Magento2_PureChat/blob/master/README.md"
   },
   "autoload": {
     "files": [
