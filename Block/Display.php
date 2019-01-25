@@ -11,7 +11,7 @@
  *
  * @category    SOZO Design
  * @package     Sozo_PureChat
- * @copyright   Copyright (c) 2018 SOZO Design (https://sozodesign.co.uk)
+ * @copyright   Copyright (c) 2019 SOZO Design (https://sozodesign.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
@@ -27,18 +27,18 @@ class Display extends Template
     /**
      * @var \Sozo\PureChat\Helper\Data
      */
-    protected $_chatHelper;
+    protected $chatHelper;
 
     /**
      * Display constructor.
      *
      * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Sozo\PureChat\Helper\Data $chatHelper
-     * @param array $data
+     * @param \Sozo\PureChat\Helper\Data                       $chatHelper
+     * @param array                                            $data
      */
     public function __construct(Context $context, Data $chatHelper, array $data = [])
     {
-        $this->_chatHelper = $chatHelper;
+        $this->chatHelper = $chatHelper;
         parent::__construct($context, $data);
     }
 
@@ -49,7 +49,7 @@ class Display extends Template
      */
     public function getWidgetId()
     {
-        return $this->_chatHelper->getWidgetId();
+        return $this->chatHelper->getWidgetId();
     }
 
     /**
@@ -59,7 +59,7 @@ class Display extends Template
      */
     public function _toHtml()
     {
-        if (!$this->_chatHelper->isEnabled()) {
+        if (!$this->chatHelper->isEnabled()) {
             return '';
         }
 

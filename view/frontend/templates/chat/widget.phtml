@@ -11,7 +11,7 @@
  *
  * @category    SOZO Design
  * @package     Sozo_PureChat
- * @copyright   Copyright (c) 2018 SOZO Design (https://sozodesign.co.uk)
+ * @copyright   Copyright (c) 2019 SOZO Design (https://sozodesign.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
@@ -27,16 +27,16 @@
         }
     };
     (function () {
-        var done = false;
-        var script = document.createElement('script');
+        var done     = false;
+        var script   = document.createElement('script');
         script.async = true;
-        script.type = 'text/javascript';
-        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+        script.type  = 'text/javascript';
+        script.src   = 'https://app.purechat.com/VisitorWidget/WidgetScript';
         document.getElementsByTagName('HEAD').item(0).appendChild(script);
         script.onreadystatechange = script.onload = function (e) {
             if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
                 var w = new PCWidget({c: '<?php echo $block->getWidgetId()?>', f: true});
-                done = true;
+                done  = true;
             }
         };
     })();</script>

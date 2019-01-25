@@ -11,7 +11,7 @@
  *
  * @category    SOZO Design
  * @package     Sozo_PureChat
- * @copyright   Copyright (c) 2018 SOZO Design (https://sozodesign.co.uk)
+ * @copyright   Copyright (c) 2019 SOZO Design (https://sozodesign.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
@@ -31,7 +31,7 @@ class Hint extends Template implements RendererInterface
     /**
      * @var \Sozo\PureChat\Helper\Data
      */
-    protected $_helper;
+    protected $helper;
 
     /**
      * @var string
@@ -41,32 +41,32 @@ class Hint extends Template implements RendererInterface
     /**
      * @var \Magento\Framework\App\ProductMetadataInterface
      */
-    protected $_metaData;
+    protected $metaData;
 
     /**
      * @var \Magento\Framework\Module\ModuleList\Loader
      */
-    protected $_loader;
+    protected $loader;
 
     /**
-     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Backend\Block\Template\Context         $context
      * @param \Magento\Framework\App\ProductMetadataInterface $productMetaData
-     * @param \Magento\Framework\Module\ModuleList\Loader $loader
-     * @param \Sozo\PureChat\Helper\Data $helper
-     * @param array $data
+     * @param \Magento\Framework\Module\ModuleList\Loader     $loader
+     * @param \Sozo\PureChat\Helper\Data                      $helper
+     * @param array                                           $data
      */
     public function __construct(
-        Context $context,
-        ProductMetadataInterface $productMetaData,
-        Loader $loader,
-        Data $helper,
-        array $data = []
+      Context $context,
+      ProductMetadataInterface $productMetaData,
+      Loader $loader,
+      Data $helper,
+      array $data = []
     ) {
 
         parent::__construct($context, $data);
-        $this->_metaData = $productMetaData;
-        $this->_loader = $loader;
-        $this->_helper = $helper;
+        $this->metaData = $productMetaData;
+        $this->loader = $loader;
+        $this->helper = $helper;
     }
 
     /**
@@ -84,9 +84,9 @@ class Hint extends Template implements RendererInterface
      */
     public function getPxParams()
     {
-        $v = $this->_helper->getExtensionVersion();
+        $v = $this->helper->getExtensionVersion();
         $extension = "PureChat;{$v}";
-        $mageEdition = $this->_metaData->getEdition();
+        $mageEdition = $this->metaData->getEdition();
         switch ($mageEdition) {
             case 'Community':
                 $mageEdition = 'CE';
@@ -95,7 +95,7 @@ class Hint extends Template implements RendererInterface
                 $mageEdition = 'EE';
                 break;
         }
-        $mageVersion = $this->_metaData->getVersion();
+        $mageVersion = $this->metaData->getVersion();
         $mage = "Magento {$mageEdition};{$mageVersion}";
         $hash = md5($extension . '_' . $mage . '_' . $extension);
         return "ext=$extension&mage={$mage}&ctrl={$hash}";
@@ -106,6 +106,6 @@ class Hint extends Template implements RendererInterface
      */
     public function getVersion()
     {
-        return $this->_helper->getExtensionVersion();
+        return $this->helper->getExtensionVersion();
     }
 }
